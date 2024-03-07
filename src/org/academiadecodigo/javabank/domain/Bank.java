@@ -22,6 +22,10 @@ public class Bank {
         this.accountManager = accountManager;
     }
 
+    public Set<Customer> getCustomers(){
+        return customers;
+    }
+    
     /**
      * Adds a new customer to the bank
      *

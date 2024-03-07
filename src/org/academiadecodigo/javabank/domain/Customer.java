@@ -15,6 +15,18 @@ public class Customer {
     private AccountManager accountManager;
     private Map<Integer, Account> accounts = new HashMap<>();
 
+    private static int numberOfCustomers = 0;
+    private int myID;
+
+    public Customer(){
+        numberOfCustomers++;
+        myID = numberOfCustomers;
+    }
+
+    public int getMyID(){
+        return myID;
+    }
+
     /**
      * Sets the account manager
      *
