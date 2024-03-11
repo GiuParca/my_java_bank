@@ -1,5 +1,6 @@
 package org.academiadecodigo.javabank.domain;
 
+import org.academiadecodigo.bootcamp.Prompt;
 import org.academiadecodigo.javabank.managers.AccountManager;
 
 import java.util.HashSet;
@@ -28,9 +29,23 @@ public class Bank {
      * @param customer the new bank customer
      * @see Customer#setAccountManager(AccountManager)
      */
-    public void addCustomer(Customer customer) {
+    public void addCustomer(Customer customer) throws Exception {
+        for (Customer existingCustomer : customers) {
+            if (existingCustomer.getId() == customer.getId()) {
+                throw new Exception("Client already exist");
+            }
+        }
         customers.add(customer);
         customer.setAccountManager(accountManager);
+    }
+
+    public Customer getCustomerById(int id) throws Exception {
+        for (Customer existingCustomer : customers) {
+            if (existingCustomer.getId() == id) {
+                return existingCustomer;
+            }
+        }
+        throw new Exception("Customer not found");
     }
 
     /**
@@ -48,4 +63,6 @@ public class Bank {
 
         return balance;
     }
+
+
 }

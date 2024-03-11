@@ -12,14 +12,25 @@ import java.util.Map;
  */
 public class Customer {
 
+    private int id;
+
     private AccountManager accountManager;
     private Map<Integer, Account> accounts = new HashMap<>();
+
+    public Customer(int id){
+        this.id = id;
+    }
+
+    public int getId(){
+        return this.id;
+    }
 
     /**
      * Sets the account manager
      *
      * @param accountManager the account manager to set
      */
+
     public void setAccountManager(AccountManager accountManager) {
         this.accountManager = accountManager;
     }
